@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "source": "Extracted from degree-planner-web prototype; AUI-oriented CSC path",
+  "notes": [
+    "Placeholder codes (SPECIALIZATION *, FREE ELECTIVE *, etc.) are temporary until the full catalog is filled in.",
+    "Credits are inferred from the middle digit of the AUI course code when possible (e.g. 1401 → 4 credits)."
+  ],
+  "courses": [
+    { "code": "ARB 1203", "title": "Arabic Communication", "credits": 2, "prereqs": [] },
+    { "code": "COM 1304", "title": "New Media Technologies", "credits": 3, "prereqs": [] },
+    { "code": "COM 2403", "title": "Photography", "credits": 4, "prereqs": [] },
+    { "code": "COM 2427", "title": "Art and Design Production", "credits": 4, "prereqs": [] },
+    { "code": "COM 2301", "title": "Professional Communication", "credits": 3, "prereqs": [] },
+    { "code": "PSY 1301", "title": "Intro to Psychology", "credits": 3, "prereqs": [] },
+    { "code": "PSC 2301", "title": "Comparative Political Systems", "credits": 3, "prereqs": [] },
+    { "code": "GER 1301", "title": "Beginning German", "credits": 3, "prereqs": [] },
+    { "code": "ART 1304", "title": "Culture and Heritage", "credits": 3, "prereqs": [] },
+    { "code": "HUM 3399", "title": "Special Topics: Common Sense", "credits": 3, "prereqs": [] },
+    { "code": "PHI 2302", "title": "History of Ideas", "credits": 3, "prereqs": [] },
+
+    { "code": "CSC 1401", "title": "Computer Programming", "credits": 4, "prereqs": [] },
+    { "code": "CSC 2302", "title": "Data Structures", "credits": 3, "prereqs": ["CSC 1401"] },
+    { "code": "CSC 2306", "title": "Object-Oriented Programming", "credits": 3, "prereqs": ["CSC 2302"] },
+    { "code": "CSC 2305", "title": "Computer Architecture", "credits": 3, "prereqs": ["CSC 2302"] },
+    { "code": "CSC 3315", "title": "Languages and Compilers", "credits": 3, "prereqs": ["CSC 2306"] },
+    { "code": "CSC 3323", "title": "Analysis of Algorithms", "credits": 3, "prereqs": ["CSC 2302", "CSC 2306"] },
+    { "code": "CSC 3324", "title": "Software Engineering", "credits": 3, "prereqs": ["CSC 2306"] },
+    { "code": "CSC 3326", "title": "Database Systems", "credits": 3, "prereqs": ["CSC 2306"] },
+    { "code": "CSC 3351", "title": "Operating Systems", "credits": 3, "prereqs": ["CSC 2305"] },
+    { "code": "CSC 3371", "title": "Computer Networks and Communication", "credits": 3, "prereqs": ["CSC 2305"] },
+    { "code": "CSC 3373", "title": "Cloud Computing", "credits": 3, "prereqs": ["CSC 3351", "CSC 3371"] },
+    { "code": "CSC 3374", "title": "Advanced and Distributed Programming Paradigms", "credits": 3, "prereqs": ["CSC 3323"] },
+    { "code": "CSC 3328", "title": "Embedded Systems", "credits": 3, "prereqs": ["CSC 3351"] },
+    { "code": "CSC 3329", "title": "IoT and Big Data Streaming", "credits": 3, "prereqs": ["CSC 3371"] },
+    { "code": "CSC 3358", "title": "Blockchain Business Applications", "credits": 3, "prereqs": ["CSC 3326"] },
+
+    { "code": "EGR 2302", "title": "Engineering Economics", "credits": 3, "prereqs": [] },
+    { "code": "EGR 4402", "title": "Capstone Design", "credits": 4, "prereqs": [] },
+    { "code": "EGR 4300", "title": "Internship", "credits": 3, "prereqs": [] },
+
+    { "code": "MTH 1303", "title": "Calculus I", "credits": 3, "prereqs": [] },
+    { "code": "MTH 1304", "title": "Discrete Mathematics", "credits": 3, "prereqs": [] },
+    { "code": "MTH 2301", "title": "Calculus II", "credits": 3, "prereqs": ["MTH 1303"] },
+    { "code": "MTH 2320", "title": "Linear Algebra", "credits": 3, "prereqs": ["MTH 1303"] },
+    { "code": "MTH 3301", "title": "Probability and Statistics", "credits": 3, "prereqs": ["MTH 2301"] },
+
+    { "code": "PHY 1401", "title": "Physics I", "credits": 4, "prereqs": ["MTH 1303"] },
+    { "code": "PHY 1402", "title": "Physics II", "credits": 4, "prereqs": ["PHY 1401"] },
+    { "code": "CHE 1401", "title": "General Chemistry I", "credits": 4, "prereqs": [] },
+
+    { "code": "FYE 1101", "title": "First Year Experience I", "credits": 1, "prereqs": [] },
+    { "code": "FYE 1102", "title": "First Year Experience II", "credits": 1, "prereqs": [] },
+    { "code": "FAS 0210", "title": "Strategic Academic Skills", "credits": 2, "prereqs": [] },
+    { "code": "FAS 1220", "title": "Critical Thinking", "credits": 2, "prereqs": [] },
+    { "code": "ENG 1301", "title": "English Composition", "credits": 3, "prereqs": [] },
+    { "code": "ENG 2303", "title": "Technical Writing", "credits": 3, "prereqs": ["ENG 1301"] },
+    { "code": "COM 1301", "title": "Public Speaking", "credits": 3, "prereqs": [] },
+
+    { "code": "COMPUTING ELECTIVE", "title": "Computing Elective", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "FREE ELECTIVE 1", "title": "Free Elective 1", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "FREE ELECTIVE 2", "title": "Free Elective 2", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "MINOR COURSE 5", "title": "Minor Course 5", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "SPECIALIZATION 1", "title": "Specialization 1", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "SPECIALIZATION 2", "title": "Specialization 2", "credits": 3, "prereqs": [], "placeholder": true },
+    { "code": "SPECIALIZATION 3", "title": "Specialization 3", "credits": 3, "prereqs": [], "placeholder": true }
+  ]
+}

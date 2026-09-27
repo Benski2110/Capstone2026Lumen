@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degree Plan — Mohammed Benabdallah Belbaraka</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f9f9f8;
+    --surface: #ffffff;
+    --surface-subtle: #f4f3f1;
+    --border: #e8e6e1;
+    --border-strong: #d4d0c8;
+    --text-primary: #1a1a18;
+    --text-secondary: #6b6860;
+    --text-tertiary: #9e9b94;
+    --accent: #1a1a18;
+
+    --green-bg: #eef6e6;
+    --green-text: #2d6016;
+    --green-border: #c6e0a4;
+
+    --blue-bg: #e8f1fb;
+    --blue-text: #144e8f;
+    --blue-border: #aecef4;
+
+    --amber-bg: #fdf3e0;
+    --amber-text: #7a4608;
+    --amber-border: #f5cc7a;
+
+    --red-bg: #fdecea;
+    --red-text: #8f1f1f;
+    --red-border: #f2aaaa;
+
+    --teal-bg: #e4f5ef;
+    --teal-text: #0d5c42;
+    --teal-border: #8fd9bc;
+
+    --gray-bg: #f0eeea;
+    --gray-text: #54524d;
+    --gray-border: #ccc9c1;
+
+    --slate-bg: #f2f1ef;
+    --slate-text: #888480;
+  }
+
+  [data-theme="dark"] {
+    --bg: #111110;
+    --surface: #1c1c1a;
+    --surface-subtle: #242422;
+    --border: #2e2e2b;
+    --border-strong: #3a3a36;
+    --text-primary: #f0ede8;
+    --text-secondary: #8c8880;
+    --text-tertiary: #5c5a55;
+    --accent: #f0ede8;
+
+    --green-bg: #1a2e10;
+    --green-text: #8fd96a;
+    --green-border: #2d5018;
+
+    --blue-bg: #0f1f38;
+    --blue-text: #7ab8f5;
+    --blue-border: #1a3660;
+
+    --amber-bg: #2a1e08;
+    --amber-text: #f5b84a;
+    --amber-border: #4a3210;
+
+    --red-bg: #2a0f0f;
+    --red-text: #f57a7a;
+    --red-border: #4a1818;
+
+    --teal-bg: #0e2820;
+    --teal-text: #5dd4a8;
+    --teal-border: #184535;
+
+    --gray-bg: #242320;
+    --gray-text: #a09d96;
+    --gray-border: #3a3830;
+
+    --slate-bg: #202020;
+    --slate-text: #6a6760;
+  }
+
+  *, *::before, *::after { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 48px 32px;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
+  }
+
+  .toolbar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    letter-spacing: 0.01em;
+  }
+
+  .toolbar-btn:hover {
+    background: var(--surface-subtle);
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  .theme-icon-sun { display: none; }
+  .theme-icon-moon { display: block; }
+  [data-theme="dark"] .theme-icon-moon { display: none; }
+  [data-theme="dark"] .theme-icon-sun { display: block; }
+
+  /* ── Header ── */
+  .header {
+    margin-bottom: 48px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .header-title {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .header-title span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .header-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green-text);
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 14px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .meta-item {
+    flex: 1;
+    padding: 0 16px;
+    border-right: 1px solid var(--border);
+  }
+
+  .meta-item:first-child { padding-left: 0; }
+  .meta-item:last-child { padding-right: 0; border-right: none; }
+
+  .meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin-bottom: 3px;
+  }
+
+  .meta-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  /* ── Year block ── */
+  .year-block {
+    margin-bottom: 40px;
+  }
+
+  .year-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .year-number {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+
+  .year-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .year-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Semesters grid ── */
+  .semesters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .semester {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sem-header {
+    padding: 12px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .sem-header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .add-course-btn {
+    display: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .planner-mode .add-course-btn { display: inline-flex; align-items: center; }
+  .add-course-btn:hover { border-color: var(--border-strong); color: var(--text-primary); background: var(--surface); }
+
+  .sem-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.1px;
+  }
+
+  .sem-sch {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 1px 7px;
+  }
+
+  /* Season accent stripe */
+  .semester.fall .sem-header  { border-top: 3px solid #d4a853; }
+  .semester.spring .sem-header { border-top: 3px solid #7bbf6a; }
+  .semester.summer .sem-header { border-top: 3px solid #e07050; }
+
+  /* ── Course row ── */
+  .course {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 16px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+
+  .course:last-child { border-bottom: none; }
+  .course:hover { background: var(--surface-subtle); }
+
+  .course-info { flex: 1; min-width: 0; }
+
+  .course-id {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    margin-bottom: 2px;
+  }
+
+  .course-title {
+    font-size: 12px;
+    color: var(--text-primary);
+    line-height: 1.35;
+    font-weight: 400;
+  }
+
+  /* ── Grade badges ── */
+  .grade {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+  }
+
+  .g-a  { background: var(--green-bg);  color: var(--green-text);  border-color: var(--green-border); }
+  .g-b  { background: var(--blue-bg);   color: var(--blue-text);   border-color: var(--blue-border); }
+  .g-c  { background: var(--amber-bg);  color: var(--amber-text);  border-color: var(--amber-border); }
+  .g-d  { background: var(--red-bg);    color: var(--red-text);    border-color: var(--red-border); }
+  .g-f  { background: var(--red-bg);    color: var(--red-text);    border-color: var(--red-border); }
+  .g-p  { background: var(--teal-bg);   color: var(--teal-text);   border-color: var(--teal-border); }
+  .g-w  { background: var(--gray-bg);   color: var(--gray-text);   border-color: var(--gray-border); }
+  .g-tbd {
+    background: var(--slate-bg);
+    color: var(--slate-text);
+    border-color: var(--border);
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .empty {
+    padding: 20px 16px;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Category tags ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .tag {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+
+  .tag-minor   { background: #f0e8fb; color: #5b21b6; border-color: #d8b4fe; }
+  .tag-spec    { background: #fff0e0; color: #92400e; border-color: #fcd34d; }
+  .tag-elective{ background: #e0f2fe; color: #075985; border-color: #7dd3fc; }
+  .tag-free    { background: #f0fdf4; color: #14532d; border-color: #86efac; }
+  .tag-core    { background: var(--surface-subtle); color: var(--text-tertiary); border-color: var(--border); }
+
+  [data-theme="dark"] .tag-minor   { background: #2e1065; color: #c4b5fd; border-color: #4c1d95; }
+  [data-theme="dark"] .tag-spec    { background: #431407; color: #fcd34d; border-color: #78350f; }
+  [data-theme="dark"] .tag-elective{ background: #082f49; color: #7dd3fc; border-color: #0c4a6e; }
+  [data-theme="dark"] .tag-free    { background: #052e16; color: #86efac; border-color: #14532d; }
+
+  /* ── Legend ── */
+  .legend-section {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .legend-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .legend {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px 3px 7px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .legend-item.la  { background: var(--green-bg);  color: var(--green-text);  border-color: var(--green-border); }
+  .legend-item.lb  { background: var(--blue-bg);   color: var(--blue-text);   border-color: var(--blue-border); }
+  .legend-item.lc  { background: var(--amber-bg);  color: var(--amber-text);  border-color: var(--amber-border); }
+  .legend-item.ldf { background: var(--red-bg);    color: var(--red-text);    border-color: var(--red-border); }
+  .legend-item.lp  { background: var(--teal-bg);   color: var(--teal-text);   border-color: var(--teal-border); }
+  .legend-item.lw  { background: var(--gray-bg);   color: var(--gray-text);   border-color: var(--gray-border); }
+  .legend-item.lu  { background: var(--slate-bg);  color: var(--slate-text);  border-color: var(--border); }
+
+  .legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .la .legend-dot  { background: var(--green-text); }
+  .lb .legend-dot  { background: var(--blue-text); }
+  .lc .legend-dot  { background: var(--amber-text); }
+  .ldf .legend-dot { background: var(--red-text); }
+  .lp .legend-dot  { background: var(--teal-text); }
+  .lw .legend-dot  { background: var(--gray-text); }
+  .lu .legend-dot  { background: var(--slate-text); }
+
+  /* ── Season legend ── */
+  .season-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    align-items: center;
+  }
+
+  .season-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .season-stripe {
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .s-fall   { background: #d4a853; }
+  .s-spring { background: #7bbf6a; }
+  .s-summer { background: #e07050; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  /* ── Editable grade ── */
+  .grade.editable { cursor: pointer; }
+  .grade.editable:hover { opacity: 0.78; outline: 2px dashed var(--border-strong); outline-offset: 2px; }
+  .grade.editable::after { content: ' ✎'; font-size: 9px; opacity: 0.55; }
+
+  /* ── Grade picker modal ── */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.32); z-index: 200; align-items: center; justify-content: center; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; width: 320px; box-shadow: 0 8px 40px rgba(0,0,0,0.2); }
+  .modal-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+  .modal-subtitle { font-size: 11px; color: var(--text-tertiary); margin-bottom: 18px; font-family: 'SF Mono', monospace; letter-spacing: 0.04em; }
+  .grade-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-bottom: 18px; }
+  .grade-option { padding: 8px 4px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-subtle); font-size: 12px; font-weight: 600; color: var(--text-secondary); cursor: pointer; text-align: center; transition: all 0.1s; font-family: inherit; }
+  .grade-option:hover, .grade-option.selected { border-color: var(--border-strong); color: var(--text-primary); transform: scale(1.04); }
+  .opt-a  { background: var(--green-bg)!important;  color: var(--green-text)!important;  border-color: var(--green-border)!important; }
+  .opt-b  { background: var(--blue-bg)!important;   color: var(--blue-text)!important;   border-color: var(--blue-border)!important; }
+  .opt-c  { background: var(--amber-bg)!important;  color: var(--amber-text)!important;  border-color: var(--amber-border)!important; }
+  .opt-d  { background: var(--red-bg)!important;    color: var(--red-text)!important;    border-color: var(--red-border)!important; }
+  .opt-f  { background: var(--red-bg)!important;    color: var(--red-text)!important;    border-color: var(--red-border)!important; }
+  .opt-p  { background: var(--teal-bg)!important;   color: var(--teal-text)!important;   border-color: var(--teal-border)!important; }
+  .opt-w  { background: var(--gray-bg)!important;   color: var(--gray-text)!important;   border-color: var(--gray-border)!important; }
+  .opt-pending { background: var(--slate-bg)!important; color: var(--slate-text)!important; border-color: var(--border)!important; font-style: italic; font-weight: 400!important; }
+  .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  .modal-btn { padding: 7px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-subtle); color: var(--text-secondary); font-size: 12px; font-weight: 500; cursor: pointer; font-family: inherit; }
+  .modal-btn:hover { background: var(--surface); color: var(--text-primary); }
+  .modal-btn.primary { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+  .modal-btn.primary:hover { opacity: 0.82; }
+  @keyframes flash { 0%,100%{opacity:1} 50%{opacity:0.35} }
+  .grade.just-saved { animation: flash 0.35s ease; }
+
+  .planner-alert {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 12px;
+    font-size: 12px;
+    color: var(--text-primary);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+    z-index: 350;
+    display: none;
+  }
+  .planner-alert.error {
+    border-color: var(--red-border);
+    color: var(--red-text);
+    background: var(--red-bg);
+  }
+</style>
+</head>
+<body>
+<!-- Toolbar -->
+<div class="toolbar">
+  <a class="toolbar-btn" href="https://www.myaui.ma" target="_blank" rel="noopener">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M8 1.5C8 1.5 6 4 6 8s2 6.5 2 6.5M8 1.5C8 1.5 10 4 10 8s-2 6.5-2 6.5M1.5 8h13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    Student Portal
+    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <button class="toolbar-btn" id="theme-toggle" onclick="toggleTheme()">
+    <svg class="theme-icon-moon" width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.5 10.5A6 6 0 0 1 5.5 2.5a6 6 0 1 0 8 8z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="theme-icon-sun" width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M12.95 3.05l-1.06 1.06M4.11 11.89l-1.06 1.06" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    <span id="theme-label">Dark mode</span>
+  </button>
+  <button class="toolbar-btn" id="planner-mode-toggle" onclick="togglePlannerMode()">New Student Mode</button>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="header-title">
+        <span>Computer Science — SSE</span>
+        Mohammed Benabdallah Belbaraka
+      </div>
+      <div class="header-badge">
+        <span class="dot"></span>
+        Spring 2026 — In Progress
+      </div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-label">Student ID</div>
+        <div class="meta-value">121160</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">School</div>
+        <div class="meta-value">Science &amp; Engineering</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Min. Degree Requirements</div>
+        <div class="meta-value">134 SCH</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Credits Earned</div>
+        <div class="meta-value" id="credits-earned">—</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Expected Graduation</div>
+        <div class="meta-value">Fall 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year 1 -->
+  <div class="year-block">
+    <div class="year-header">
+      <span class="year-number">Year 1</span>
+      <span class="year-title">2022 – 2023</span>
+      <div class="year-line"></div>
+    </div>
+    <div class="semesters">
+      <div class="semester fall">
+        <div class="sem-header"><div class="sem-title">Fall 2022</div><span class="sem-sch">15 SCH</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">ARB 1203</div><div class="course-title">Arabic Communication</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 1401</div><div class="course-title">Computer Programming</div></div><span class="grade g-b">B+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">ENG 1301</div><div class="course-title">English Composition</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">FAS 0210</div><div class="course-title">Strategic Academic Skills</div></div><span class="grade g-p">P</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">FYE 1101</div><div class="course-title">First Year Experience I</div></div><span class="grade g-p">P</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 1304</div><div class="course-title">Discrete Mathematics</div></div><span class="grade g-f">F</span></div>
+      </div>
+      <div class="semester spring">
+        <div class="sem-header"><div class="sem-title">Spring 2023</div><span class="sem-sch">16 SCH</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CHE 1401</div><div class="course-title">General Chemistry I</div></div><span class="grade g-c">C+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">COM 1301</div><div class="course-title">Public Speaking</div></div><span class="grade g-a">A+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 2302</div><div class="course-title">Data Structures</div></div><span class="grade g-d">D</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">FAS 1220</div><div class="course-title">Intro. to Critical Thinking</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">FYE 1102</div><div class="course-title">First Year Experience II</div></div><span class="grade g-p">P</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 1303</div><div class="course-title">Differential &amp; Integral Calculus</div></div><span class="grade g-f">F</span></div>
+      </div>
+      <div class="semester summer">
+        <div class="sem-header"><div class="sem-title">Summer 2023</div><span class="sem-sch">6 SCH</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 1304</div><div class="course-title">Discrete Mathematics</div></div><span class="grade g-a">A+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">PHI 2302</div><div class="course-title">History of Ideas</div></div><span class="grade g-a">A+</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year 2 -->
+  <div class="year-block">
+    <div class="year-header">
+      <span class="year-number">Year 2</span>
+      <span class="year-title">2023 – 2024</span>
+      <div class="year-line"></div>
+    </div>
+    <div class="semesters">
+      <div class="semester fall">
+        <div class="sem-header"><div class="sem-title">Fall 2023</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">COM 1304</div><div class="course-title">New Media Technologies</div><div class="tags"><span class="tag tag-minor">Minor 1</span></div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 2302</div><div class="course-title">Data Structures</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">ENG 2303</div><div class="course-title">Technical Writing</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 1303</div><div class="course-title">Calculus I</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">PSY 1301</div><div class="course-title">Intro to Psychology</div></div><span class="grade g-a">A</span></div>
+      </div>
+      <div class="semester spring">
+        <div class="sem-header"><div class="sem-title">Spring 2024</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">COM 2403</div><div class="course-title">Photography</div><div class="tags"><span class="tag tag-minor">Minor 2</span></div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 2306</div><div class="course-title">Object-Oriented Programming</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">EGR 2302</div><div class="course-title">Engineering Economics</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">PHY 1401</div><div class="course-title">Physics I</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 2301</div><div class="course-title">Calculus II</div></div><span class="grade g-c">C</span></div>
+      </div>
+      <div class="semester summer">
+        <div class="sem-header"><div class="sem-title">Summer 2024</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">PHY 1402</div><div class="course-title">Physics II</div></div><span class="grade g-c">C+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3324</div><div class="course-title">Software Engineering</div></div><span class="grade g-c">C</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year 3 -->
+  <div class="year-block">
+    <div class="year-header">
+      <span class="year-number">Year 3</span>
+      <span class="year-title">2024 – 2025</span>
+      <div class="year-line"></div>
+    </div>
+    <div class="semesters">
+      <div class="semester fall">
+        <div class="sem-header"><div class="sem-title">Fall 2024</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">COM 2427</div><div class="course-title">Art and Design Production</div><div class="tags"><span class="tag tag-minor">Minor 3</span></div></div><span class="grade g-a">A</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 2305</div><div class="course-title">Computer Architecture</div></div><span class="grade g-w">W</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3326</div><div class="course-title">Database Systems</div></div><span class="grade g-b">B+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 2320</div><div class="course-title">Linear Algebra</div></div><span class="grade g-c">C−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">PSC 2301</div><div class="course-title">Comparative Political Systems</div></div><span class="grade g-c">C</span></div>
+      </div>
+      <div class="semester spring">
+        <div class="sem-header"><div class="sem-title">Spring 2025</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">COM 2301</div><div class="course-title">Professional Communication</div><div class="tags"><span class="tag tag-minor">Minor 4</span></div></div><span class="grade g-a">A</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">MTH 3301</div><div class="course-title">Probability &amp; Statistics for Engineering</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 2305</div><div class="course-title">Computer Architecture</div></div><span class="grade g-b">B+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3315</div><div class="course-title">Languages &amp; Compilers</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3323</div><div class="course-title">Analysis of Algorithms</div></div><span class="grade g-d">D+</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">GER 1301</div><div class="course-title">Beginning German</div></div><span class="grade g-b">B</span></div>
+      </div>
+      <div class="semester summer">
+        <div class="sem-header"><div class="sem-title">Summer 2025</div></div>
+        <div class="empty">No courses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year 4 -->
+  <div class="year-block">
+    <div class="year-header">
+      <span class="year-number">Year 4</span>
+      <span class="year-title">2025 – 2026</span>
+      <div class="year-line"></div>
+    </div>
+    <div class="semesters">
+      <div class="semester fall">
+        <div class="sem-header"><div class="sem-title">Fall 2025</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">ART 1304</div><div class="course-title">Culture and Heritage</div></div><span class="grade g-b">B−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3351</div><div class="course-title">Operating Systems</div></div><span class="grade g-a">A−</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3358</div><div class="course-title">Blockchain Business Applications</div><div class="tags"><span class="tag tag-elective">Computing Elective</span></div></div><span class="grade g-c">C</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3371</div><div class="course-title">Computer Networks &amp; Communication</div></div><span class="grade g-b">B</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">EGR 4300</div><div class="course-title">Internship</div></div><span class="grade g-a">A</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">HUM 3399</div><div class="course-title">Special Topics: Common Sense</div><div class="tags"><span class="tag tag-free">Free Elective 1</span></div></div><span class="grade g-a">A</span></div>
+      </div>
+      <div class="semester spring">
+        <div class="sem-header"><div class="sem-title">Spring 2026</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3323</div><div class="course-title">Analysis of Algorithms</div></div><span class="grade g-tbd editable">In progress</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3374</div><div class="course-title">Advanced &amp; Distributed Programming Paradigms</div></div><span class="grade g-tbd editable">In progress</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3373</div><div class="course-title">Cloud Computing</div><div class="tags"><span class="tag tag-spec">CSys — Required</span></div></div><span class="grade g-tbd editable">In progress</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3329</div><div class="course-title">IoT &amp; Big Data Streaming</div><div class="tags"><span class="tag tag-spec">CSys — Elective</span></div></div><span class="grade g-tbd editable">In progress</span></div>
+      </div>
+      <div class="semester summer">
+        <div class="sem-header"><div class="sem-title">Summer 2026</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">Minor 5</div><div class="course-title">Minor Elective</div><div class="tags"><span class="tag tag-minor">Minor 5</span></div></div><span class="grade g-tbd editable">Upcoming</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">—</div><div class="course-title">Free Elective</div><div class="tags"><span class="tag tag-free">Free Elective 2</span></div></div><span class="grade g-tbd editable">Upcoming</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Year 5 -->
+  <div class="year-block">
+    <div class="year-header">
+      <span class="year-number">Year 5</span>
+      <span class="year-title">2026 – 2027</span>
+      <div class="year-line"></div>
+    </div>
+    <div class="semesters">
+      <div class="semester fall">
+        <div class="sem-header"><div class="sem-title">Fall 2026</div></div>
+        <div class="course"><div class="course-info"><div class="course-id">CSC 3328</div><div class="course-title">Embedded Systems</div><div class="tags"><span class="tag tag-spec">CSys — Required</span></div></div><span class="grade g-tbd editable">Upcoming</span></div>
+        <div class="course"><div class="course-info"><div class="course-id">EGR 4402</div><div class="course-title">Capstone Design</div></div><span class="grade g-tbd editable">Upcoming</span></div>
+      </div>
+      <div class="semester spring">
+        <div class="sem-header"><div class="sem-title">Spring 2027</div></div>
+        <div class="empty">No courses</div>
+      </div>
+      <div class="semester summer">
+        <div class="sem-header"><div class="sem-title">Summer 2027</div></div>
+        <div class="empty">No courses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend-section">
+    <div class="legend-label">Grade key</div>
+    <div class="legend">
+      <span class="legend-item la"><span class="legend-dot"></span>A</span>
+      <span class="legend-item lb"><span class="legend-dot"></span>B</span>
+      <span class="legend-item lc"><span class="legend-dot"></span>C</span>
+      <span class="legend-item ldf"><span class="legend-dot"></span>D / F</span>
+      <span class="legend-item lp"><span class="legend-dot"></span>Pass</span>
+      <span class="legend-item lw"><span class="legend-dot"></span>Withdrawn</span>
+      <span class="legend-item lu"><span class="legend-dot"></span>In progress / Upcoming</span>
+    </div>
+    <div class="season-legend">
+      <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-tertiary);">Semester</span>
+      <span class="season-item"><span class="season-stripe s-fall"></span>Fall</span>
+      <span class="season-item"><span class="season-stripe s-spring"></span>Spring</span>
+      <span class="season-item"><span class="season-stripe s-summer"></span>Summer</span>
+    </div>
+    <div style="margin-top: 16px;">
+      <div class="legend-label" style="margin-bottom: 8px;">Course category</div>
+      <div class="legend">
+        <span class="tag tag-minor" style="font-size:11px; padding: 3px 10px;">Communication &amp; Media Arts Minor</span>
+        <span class="tag tag-spec" style="font-size:11px; padding: 3px 10px;">Computer Systems Specialization (CSys)</span>
+        <span class="tag tag-elective" style="font-size:11px; padding: 3px 10px;">Computing Elective</span>
+        <span class="tag tag-free" style="font-size:11px; padding: 3px 10px;">Free Elective</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Mohammed Benabdallah Belbaraka · ID 121160 · Computer Science</span>
+    <span>Generated April 2026</span>
+  </div>
+
+</div>
+<!-- Grade picker modal -->
+<div class="modal-overlay" id="gradeModal">
+  <div class="modal">
+    <div class="modal-title" id="modal-course-title">Course</div>
+    <div class="modal-subtitle" id="modal-course-id">CSC 0000</div>
+    <div class="grade-grid" id="grade-grid"></div>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeModal()">Cancel</button>
+      <button class="modal-btn primary" onclick="saveGrade()">Save</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="addCourseModal">
+  <div class="modal">
+    <div class="modal-title">Add course to semester</div>
+    <div class="modal-subtitle" id="add-course-semester-label">Semester</div>
+    <div style="margin-bottom:10px;">
+      <label style="font-size:11px;color:var(--text-tertiary);display:block;margin-bottom:5px;">Course code</label>
+      <input id="add-course-code" list="catalog-codes" placeholder="e.g. CSC 2302" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface-subtle);color:var(--text-primary);font-size:12px;font-family:'SF Mono',monospace;outline:none;">
+      <datalist id="catalog-codes"></datalist>
+    </div>
+    <div style="margin-bottom:16px;">
+      <label style="font-size:11px;color:var(--text-tertiary);display:block;margin-bottom:5px;">Course title (optional)</label>
+      <input id="add-course-title" placeholder="Auto-fills from catalog" style="width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface-subtle);color:var(--text-primary);font-size:12px;outline:none;">
+    </div>
+    <div id="add-course-prereqs" style="font-size:11px;color:var(--text-tertiary);margin-bottom:14px;">Prerequisites: —</div>
+    <div id="add-course-earliest" style="font-size:11px;color:var(--text-tertiary);margin-bottom:14px;">Earliest semester: —</div>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeAddCourseModal()">Cancel</button>
+      <button class="modal-btn primary" onclick="saveAddedCourse()">Add course</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="specializationModal">
+  <div class="modal">
+    <div class="modal-title">Choose your specialization</div>
+    <div class="modal-subtitle">You can change this later in New Student Mode.</div>
+    <div id="specialization-options" style="display:grid;grid-template-columns:1fr;gap:6px;margin-bottom:16px;"></div>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="closeSpecializationModal()">Later</button>
+      <button class="modal-btn primary" onclick="saveSpecializationChoice()">Continue</button>
+    </div>
+  </div>
+</div>
+<div class="planner-alert" id="plannerAlert"></div>
+
+<script>
+  /* ── Theme ── */
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('theme-label').textContent = isDark ? 'Dark mode' : 'Light mode';
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  }
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.addEventListener('DOMContentLoaded', function() {
+        const lbl = document.getElementById('theme-label');
+        if (lbl) lbl.textContent = 'Light mode';
+      });
+    }
+  })();
+
+  /* ── Grade config ── */
+  const GRADES = [
+    { label: 'A+',  cls: 'g-a',  opt: 'opt-a' },
+    { label: 'A',   cls: 'g-a',  opt: 'opt-a' },
+    { label: 'A−',  cls: 'g-a',  opt: 'opt-a' },
+    { label: 'B+',  cls: 'g-b',  opt: 'opt-b' },
+    { label: 'B',   cls: 'g-b',  opt: 'opt-b' },
+    { label: 'B−',  cls: 'g-b',  opt: 'opt-b' },
+    { label: 'C+',  cls: 'g-c',  opt: 'opt-c' },
+    { label: 'C',   cls: 'g-c',  opt: 'opt-c' },
+    { label: 'C−',  cls: 'g-c',  opt: 'opt-c' },
+    { label: 'D+',  cls: 'g-d',  opt: 'opt-d' },
+    { label: 'D',   cls: 'g-d',  opt: 'opt-d' },
+    { label: 'F',   cls: 'g-f',  opt: 'opt-f' },
+    { label: 'P',   cls: 'g-p',  opt: 'opt-p' },
+    { label: 'W',   cls: 'g-w',  opt: 'opt-w' },
+    { label: 'In progress', cls: 'g-tbd', opt: 'opt-pending' },
+    { label: 'Upcoming',    cls: 'g-tbd', opt: 'opt-pending' },
+  ];
+
+  const COURSE_CATALOG = {
+    'FYE 1101': { title: 'First Year Experience I', prereqs: [] },
+    'FYE 1102': { title: 'First Year Experience II', prereqs: [] },
+    'FAS 0210': { title: 'Foundations for Academic Success: Strategic Academic Skills', prereqs: [] },
+    'FAS 1220': { title: 'Foundations for Academic Success: Introduction to Critical Thinking', prereqs: [] },
+    'ENG 1301': { title: 'English Composition', prereqs: [] },
+    'ENG 2303': { title: 'Technical Writing', prereqs: ['ENG 1301'] },
+    'COM 1301': { title: 'Public Speaking', prereqs: [] },
+    'COM 1304': { title: 'New Media Technologies', prereqs: [] },
+    'COM 2301': { title: 'Professional Communication', prereqs: ['COM 1301'] },
+    'COM 2403': { title: 'Photography', prereqs: ['COM 1304'] },
+    'COM 2427': { title: 'Art and Design Production', prereqs: ['COM 2403'] },
+    'ART 1301': { title: 'Art Appreciation', prereqs: ['FYE 1101'] },
+    'ART 1302': { title: 'Art History', prereqs: ['FYE 1101'] },
+    'ART 1303': { title: 'Visual Arts', prereqs: ['FYE 1101'] },
+    'ART 1304': { title: 'Culture and Heritage', prereqs: ['FYE 1101'] },
+    'ARB 1203': { title: 'Arabic Communication', prereqs: [] },
+    'ARB 1201': { title: 'Arabic I', prereqs: [] },
+    'ARB 1202': { title: 'Arabic II', prereqs: [] },
+    'ARB 1291': { title: 'Arabic Track', prereqs: [] },
+    'ARB 1292': { title: 'Arabic Track', prereqs: [] },
+    'ARB 1293': { title: 'Arabic Track', prereqs: [] },
+    'ARB 1294': { title: 'Arabic Track', prereqs: [] },
+    'ARB 1295': { title: 'Arabic Track', prereqs: [] },
+    'ARB 1296': { title: 'Arabic Track', prereqs: [] },
+    'LIT 2301': { title: 'Literature', prereqs: ['ENG 1301'] },
+    'FRN 3210': { title: 'French', prereqs: [] },
+    'GER 1301': { title: 'Beginning German', prereqs: [] },
+
+    'MTH 1303': { title: 'Differential and Integral Calculus', prereqs: [] },
+    'MTH 1304': { title: 'Discrete Mathematics', prereqs: [] },
+    'MTH 2301': { title: 'Calculus II', prereqs: ['MTH 1303'] },
+    'MTH 2320': { title: 'Linear Algebra', prereqs: ['MTH 1303'] },
+    'MTH 3301': { title: 'Probability and Statistics for Engineers', prereqs: ['MTH 2301'] },
+    'PHY 1401': { title: 'Physics I', prereqs: ['MTH 1303'] },
+    'PHY 1402': { title: 'Physics II', prereqs: ['PHY 1401'] },
+    'CHE 1401': { title: 'General Chemistry I', prereqs: [] },
+    'BIO 1402': { title: 'Basic Sciences Elective (Biology)', prereqs: [] },
+    'EGR 2302': { title: 'Engineering Economics', prereqs: [] },
+    'BIO 1401': { title: 'Basic Sciences Elective (Biology)', prereqs: [] },
+    'CHE 1402': { title: 'Basic Sciences Elective (Chemistry)', prereqs: ['CHE 1401'] },
+
+    'CSC 1401': { title: 'Computer Programming', prereqs: [] },
+    'CSC 2302': { title: 'Data Structures', prereqs: ['CSC 1401'] },
+    'CSC 2306': { title: 'Object-Oriented Programming', prereqs: ['CSC 2302'] },
+    'CSC 2305': { title: 'Computer Architecture', prereqs: ['CSC 2302'] },
+    'CSC 3315': { title: 'Languages & Compilers', prereqs: ['CSC 2306'] },
+    'CSC 3323': { title: 'Analysis of Algorithms', prereqs: ['CSC 2302', 'CSC 2306'] },
+    'CSC 3324': { title: 'Software Engineering', prereqs: ['CSC 2306'] },
+    'CSC 3326': { title: 'Database Systems', prereqs: ['CSC 2306'] },
+    'CSC 3351': { title: 'Operating Systems', prereqs: ['CSC 2305'] },
+    'CSC 3371': { title: 'Computer Networks & Communication', prereqs: ['CSC 2305'] },
+    'CSC 3373': { title: 'Cloud Computing', prereqs: ['CSC 3351', 'CSC 3371'] },
+    'CSC 3374': { title: 'Advanced & Distributed Programming Paradigms', prereqs: ['CSC 3323'] },
+    'CSC 3328': { title: 'Embedded Systems', prereqs: ['CSC 3351'] },
+    'CSC 3329': { title: 'IoT & Big Data Streaming', prereqs: ['CSC 3371'] },
+    'EGR 4300': { title: 'Internship', prereqs: [] },
+    'EGR 4402': { title: 'Capstone Design', prereqs: [] },
+
+    'CSC 3309': { title: 'Introduction to Artificial Intelligence', prereqs: ['CSC 2306', 'CSC 3323', 'MTH 3301'] },
+    'CSC 4308': { title: 'Cyber Security', prereqs: ['CSC 3371'] },
+    'CSC 3331': { title: 'Introduction to Big Data Environment and Applications', prereqs: ['CSC 3326'] },
+    'CSC 4352': { title: 'Big Data Analytics', prereqs: ['CSC 3331'] },
+    'CSC 3346': { title: 'Data Engineering and Visualization', prereqs: ['CSC 3326'] },
+    'CSC 3349': { title: 'Data Warehousing', prereqs: ['CSC 3326'] },
+    'CSC 4351': { title: 'Statistical Analysis', prereqs: ['MTH 3301'] },
+    'CSC 3347': { title: 'Machine Learning and Data Mining', prereqs: ['CSC 3309'] },
+    'CSC 3310': { title: 'Artificial Neural Networks', prereqs: ['CSC 3309'] },
+    'CSC 3311': { title: 'Computer Vision', prereqs: ['CSC 3309'] },
+    'CSC 3348': { title: 'Natural Language Processing and Text Mining', prereqs: ['CSC 3309'] },
+    'CSC 3376': { title: 'Systems Programming', prereqs: ['CSC 3351'] },
+    'CSC 4307': { title: 'Agile Software Engineering and DevOps', prereqs: ['CSC 3326', 'CSC 3351'] },
+    'CSC 4309': { title: 'Enterprise Cloud and Mobile Applications', prereqs: ['CSC 3374'] },
+    'CSC 3357': { title: 'Object-Oriented Design', prereqs: ['CSC 2306'] },
+    'CSC 3358': { title: 'Blockchain Business Application', prereqs: ['CSC 3326'] },
+    'CSC 3359': { title: 'Software Testing', prereqs: ['CSC 2306'] },
+    'CSC 4306': { title: 'Software Project Management', prereqs: ['CSC 3324'] },
+    'CSC 4399': { title: 'Special Topics in Computer Science', prereqs: [] },
+
+    'MINOR COURSE 1': { title: 'Minor Course 1', prereqs: [] },
+    'MINOR COURSE 2': { title: 'Minor Course 2', prereqs: [] },
+    'MINOR COURSE 3': { title: 'Minor Course 3', prereqs: [] },
+    'MINOR COURSE 4': { title: 'Minor Course 4', prereqs: [] },
+    'MINOR COURSE 5': { title: 'Minor Course 5', prereqs: [] },
+    'FREE ELECTIVE 1': { title: 'Free Elective 1', prereqs: [] },
+    'FREE ELECTIVE 2': { title: 'Free Elective 2', prereqs: [] },
+    'COMPUTING ELECTIVE': { title: 'Computing Elective', prereqs: [] },
+
+    'HUM 2301': { title: 'Humanities', prereqs: [] },
+    'HUM 2305': { title: 'Humanities', prereqs: [] },
+    'HUM 2306': { title: 'Humanities', prereqs: [] },
+    'HUM 2307': { title: 'Humanities', prereqs: [] },
+    'HUM 2308': { title: 'Humanities', prereqs: [] },
+    'PHI 2301': { title: 'Philosophy', prereqs: ['ENG 1301'] },
+    'PHI 2302': { title: 'History of Ideas', prereqs: ['ENG 1301'] },
+    'HUM 3399': { title: 'Special Topics', prereqs: [] },
+
+    'HIS 1301': { title: 'History or Political Science', prereqs: [] },
+    'HIS 2301': { title: 'History or Political Science', prereqs: [] },
+    'HIS 2302': { title: 'History or Political Science', prereqs: [] },
+    'PSC 2301': { title: 'Comparative Political Systems', prereqs: ['ENG 1301'] },
+    'HUM 2302': { title: 'History or Political Science', prereqs: [] },
+
+    'ECO 1300': { title: 'Social Sciences', prereqs: [] },
+    'GEO 1301': { title: 'Social Sciences', prereqs: [] },
+    'PSY 1301': { title: 'Intro to Psychology', prereqs: [] },
+    'SOC 1301': { title: 'Social Sciences', prereqs: [] },
+    'SSC 1310': { title: 'Social Sciences', prereqs: [] },
+    'SLP 1501': { title: 'Civic Engagement', prereqs: [] },
+
+    'AREA3 MINOR ELECTIVE': { title: 'Area 3 Minor Elective', prereqs: [] },
+    'AREA4 HUMANITIES ELECTIVE': { title: 'Area 4 Humanities Elective', prereqs: [] },
+    'AREA4 SOCIAL SCIENCE ELECTIVE': { title: 'Area 4 Social Science Elective', prereqs: [] },
+    'AREA4 HISTORY/POLITICAL ELECTIVE': { title: 'Area 4 History/Political Elective', prereqs: [] },
+    'AREA1 BASIC SCIENCE ELECTIVE': { title: 'Area 1 Basic Science Elective', prereqs: [] }
+  };
+
+  const SPECIALIZATION_PLANS = {
+    ACS: {
+      label: 'Advanced Computer Science (ACS)',
+      slot1: ['CSC 3309'],
+      slot2: ['CSC 4308'],
+      slot3: ['CSC 3328', 'CSC 4399']
+    },
+    AI: {
+      label: 'Artificial Intelligence (AI)',
+      slot1: ['CSC 3309'],
+      slot2: ['CSC 3347'],
+      slot3: ['CSC 3310', 'CSC 3311', 'CSC 3348']
+    },
+    BDA: {
+      label: 'Big Data Analytics (BDA)',
+      slot1: ['CSC 3331'],
+      slot2: ['CSC 4352'],
+      slot3: ['CSC 3329', 'CSC 3346', 'CSC 3349', 'CSC 4351']
+    },
+    CSYS: {
+      label: 'Computer Systems (CSys)',
+      slot1: ['CSC 3373'],
+      slot2: ['CSC 3328'],
+      slot3: ['CSC 3329', 'CSC 3331', 'CSC 3376']
+    },
+    SE: {
+      label: 'Software Engineering (SE)',
+      slot1: ['CSC 4307'],
+      slot2: ['CSC 4309'],
+      slot3: ['CSC 3357', 'CSC 3358', 'CSC 3359', 'CSC 4306']
+    },
+    UNSURE: {
+      label: 'Not sure yet',
+      slot1: ['SPECIALIZATION 1'],
+      slot2: ['SPECIALIZATION 2'],
+      slot3: ['SPECIALIZATION 3']
+    }
+  };
+
+  // Earliest logical semester placement (by current timeline indices).
+  // Students may place courses in this semester or later, but not earlier.
+  const EARLIEST_TERM_BY_COURSE = {
+    'FYE 1101': 0, 'FAS 0210': 0, 'ENG 1301': 0, 'ARB 1203': 0, 'ARB 1201': 0, 'ARB 1202': 0, 'FRN 3210': 0,
+    'MTH 1303': 0, 'CHE 1401': 0, 'BIO 1401': 0, 'BIO 1402': 0, 'AREA1 BASIC SCIENCE ELECTIVE': 0, 'CSC 1401': 0,
+    'FYE 1102': 1, 'FAS 1220': 1, 'COM 1301': 1, 'MTH 1304': 1, 'MTH 2301': 1, 'CSC 2302': 1,
+    'ENG 2303': 3, 'MTH 2320': 3, 'PHY 1401': 3, 'CSC 2306': 3, 'CSC 2305': 5,
+    'MTH 3301': 4, 'PHY 1402': 4, 'EGR 2302': 4, 'CSC 3315': 5, 'CSC 3323': 5, 'CSC 3324': 5, 'CSC 3326': 5,
+    'CSC 3351': 9, 'CSC 3371': 9, 'EGR 4300': 9, 'FREE ELECTIVE 1': 9,
+    'CSC 3374': 10, 'EGR 4402': 12, 'FREE ELECTIVE 2': 12, 'COMPUTING ELECTIVE': 12,
+    'MINOR COURSE 1': 3, 'MINOR COURSE 2': 4, 'MINOR COURSE 3': 6, 'MINOR COURSE 4': 7, 'MINOR COURSE 5': 11
+  };
+
+  function gradeClass(label) {
+    const g = GRADES.find(x => x.label === label);
+    return g ? g.cls : 'g-tbd';
+  }
+  function gradeOpt(label) {
+    const g = GRADES.find(x => x.label === label);
+    return g ? g.opt : 'opt-pending';
+  }
+
+  /* ── Make editable grades clickable ── */
+  let currentGradeEl = null;
+  let selectedGrade = null;
+  let plannerMode = false;
+  let initialPlanSnapshot = null;
+  let addCourseSemesterEl = null;
+  let selectedSpecialization = 'UNSURE';
+  let pendingSpecializationChoice = 'UNSURE';
+
+  function initEditableGrades() {
+    document.querySelectorAll('.grade.editable').forEach(el => {
+      el.addEventListener('click', () => openModal(el));
+    });
+  }
+
+  function openModal(el) {
+    currentGradeEl = el;
+    const courseRow = el.closest('.course');
+    const title = courseRow.querySelector('.course-title').textContent;
+    const id    = courseRow.querySelector('.course-id').textContent;
+    document.getElementById('modal-course-title').textContent = title;
+    document.getElementById('modal-course-id').textContent   = id;
+
+    const current = el.textContent.trim();
+    selectedGrade = current;
+
+    // Build grid
+    const grid = document.getElementById('grade-grid');
+    grid.innerHTML = '';
+    GRADES.forEach(g => {
+      const btn = document.createElement('button');
+      btn.className = 'grade-option ' + g.opt;
+      if (g.label === current) btn.classList.add('selected');
+      btn.textContent = g.label;
+      btn.addEventListener('click', () => {
+        grid.querySelectorAll('.grade-option').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedGrade = g.label;
+      });
+      grid.appendChild(btn);
+    });
+
+    document.getElementById('gradeModal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('gradeModal').classList.remove('open');
+    currentGradeEl = null;
+    selectedGrade = null;
+  }
+
+  function buildCourseCatalogDatalist() {
+    const list = document.getElementById('catalog-codes');
+    list.innerHTML = '';
+    const codes = new Set(Object.keys(COURSE_CATALOG));
+    Object.values(SPECIALIZATION_PLANS).forEach(plan => {
+      plan.slot1.concat(plan.slot2, plan.slot3).forEach(code => codes.add(code));
+    });
+    ['SPECIALIZATION 1', 'SPECIALIZATION 2', 'SPECIALIZATION 3'].forEach(code => codes.add(code));
+    Array.from(codes).sort().forEach(code => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      list.appendChild(opt);
+    });
+  }
+
+  function decorateSemesterHeaders() {
+    document.querySelectorAll('.semester').forEach((semester, idx) => {
+      semester.dataset.termIndex = String(idx);
+      const header = semester.querySelector('.sem-header');
+      if (!header || header.querySelector('.add-course-btn')) return;
+      const title = header.querySelector('.sem-title');
+      if (title) {
+        const leftWrap = document.createElement('div');
+        leftWrap.className = 'sem-header-left';
+        header.insertBefore(leftWrap, header.firstChild);
+        leftWrap.appendChild(title);
+      }
+      const btn = document.createElement('button');
+      btn.className = 'add-course-btn';
+      btn.type = 'button';
+      btn.textContent = '+ Add course';
+      btn.addEventListener('click', () => openAddCourseModal(semester));
+      header.appendChild(btn);
+    });
+  }
+
+  function togglePlannerMode() {
+    plannerMode = !plannerMode;
+    document.body.classList.toggle('planner-mode', plannerMode);
+    document.getElementById('planner-mode-toggle').textContent = plannerMode ? 'Exit New Student Mode' : 'New Student Mode';
+    const creditsEl = document.getElementById('credits-earned');
+    if (plannerMode) {
+      if (!initialPlanSnapshot) initialPlanSnapshot = document.querySelector('.page').innerHTML;
+      emptyAllSemesters();
+      openSpecializationModal();
+      showPlannerAlert('Empty plan enabled. Choose specialization, then add courses semester by semester.', false);
+      if (creditsEl) creditsEl.textContent = '—';
+    } else {
+      restoreInitialPlan();
+      showPlannerAlert('Returned to your original plan.', false);
+    }
+  }
+
+  function emptyAllSemesters() {
+    document.querySelectorAll('.semester').forEach(semester => {
+      semester.querySelectorAll('.course').forEach(c => c.remove());
+      const empty = document.createElement('div');
+      empty.className = 'empty';
+      empty.textContent = 'No courses yet';
+      semester.appendChild(empty);
+      const schBadge = semester.querySelector('.sem-sch');
+      if (schBadge) schBadge.textContent = '0 SCH';
+    });
+    initEditableGrades();
+  }
+
+  function restoreInitialPlan() {
+    if (!initialPlanSnapshot) return;
+    document.querySelector('.page').innerHTML = initialPlanSnapshot;
+    initAfterContentRebuild();
+  }
+
+  function initAfterContentRebuild() {
+    restoreSavedGrades();
+    initEditableGrades();
+    decorateSemesterHeaders();
+    buildCourseCatalogDatalist();
+  }
+
+  function getSpecializationSlotForSemester(semesterEl) {
+    const title = semesterEl.querySelector('.sem-title')?.textContent.trim().toLowerCase() || '';
+    if (title.includes('spring 2026')) return 1;
+    if (title.includes('fall 2026')) return 2;
+    if (title.includes('spring 2027')) return 3;
+    return 0;
+  }
+
+  function getAllowedSpecCodesForSemester(semesterEl) {
+    const slot = getSpecializationSlotForSemester(semesterEl);
+    if (!slot) return [];
+    const plan = SPECIALIZATION_PLANS[selectedSpecialization] || SPECIALIZATION_PLANS.UNSURE;
+    return plan['slot' + slot] || [];
+  }
+
+  function isSpecializationCode(code) {
+    return /^SPECIALIZATION [123]$/.test(code) || Object.values(SPECIALIZATION_PLANS).some(plan =>
+      plan.slot1.concat(plan.slot2, plan.slot3).includes(code)
+    );
+  }
+
+  function openSpecializationModal() {
+    pendingSpecializationChoice = selectedSpecialization || 'UNSURE';
+    const box = document.getElementById('specialization-options');
+    box.innerHTML = '';
+    Object.keys(SPECIALIZATION_PLANS).forEach(key => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'grade-option';
+      btn.style.textAlign = 'left';
+      btn.textContent = SPECIALIZATION_PLANS[key].label;
+      if (key === pendingSpecializationChoice) btn.classList.add('selected');
+      btn.addEventListener('click', () => {
+        pendingSpecializationChoice = key;
+        box.querySelectorAll('.grade-option').forEach(x => x.classList.remove('selected'));
+        btn.classList.add('selected');
+      });
+      box.appendChild(btn);
+    });
+    document.getElementById('specializationModal').classList.add('open');
+  }
+
+  function closeSpecializationModal() {
+    document.getElementById('specializationModal').classList.remove('open');
+  }
+
+  function saveSpecializationChoice() {
+    selectedSpecialization = pendingSpecializationChoice || 'UNSURE';
+    closeSpecializationModal();
+    const selectedLabel = SPECIALIZATION_PLANS[selectedSpecialization].label;
+    showPlannerAlert('Specialization set to ' + selectedLabel + '.', false);
+  }
+
+  function openAddCourseModal(semesterEl) {
+    if (!plannerMode) return;
+    addCourseSemesterEl = semesterEl;
+    const semLabel = semesterEl.querySelector('.sem-title')?.textContent || 'Selected semester';
+    document.getElementById('add-course-semester-label').textContent = semLabel;
+    document.getElementById('add-course-code').value = '';
+    document.getElementById('add-course-title').value = '';
+    document.getElementById('add-course-prereqs').textContent = 'Prerequisites: —';
+    document.getElementById('add-course-earliest').textContent = 'Earliest semester: —';
+    document.getElementById('addCourseModal').classList.add('open');
+  }
+
+  function closeAddCourseModal() {
+    document.getElementById('addCourseModal').classList.remove('open');
+    addCourseSemesterEl = null;
+  }
+
+  function getCourseCodeFromRow(row) {
+    return row.querySelector('.course-id')?.textContent.trim().toUpperCase() || '';
+  }
+
+  function getGradeFromRow(row) {
+    return row.querySelector('.grade')?.textContent.trim() || '';
+  }
+
+  function isPassingOrPlannedGrade(grade) {
+    return !['F', 'W'].includes(grade);
+  }
+
+  function getPlannedAndCompletedBefore(termIndex) {
+    const allowed = new Set();
+    document.querySelectorAll('.semester').forEach(sem => {
+      const idx = Number(sem.dataset.termIndex || '-1');
+      if (idx >= termIndex) return;
+      sem.querySelectorAll('.course').forEach(row => {
+        const code = getCourseCodeFromRow(row);
+        const grade = getGradeFromRow(row);
+        if (code && isPassingOrPlannedGrade(grade)) allowed.add(code);
+      });
+    });
+    return allowed;
+  }
+
+  function findMissingPrereqs(courseCode, termIndex) {
+    const prereqs = COURSE_CATALOG[courseCode]?.prereqs || [];
+    if (!prereqs.length) return [];
+    const done = getPlannedAndCompletedBefore(termIndex);
+    return prereqs.filter(p => !done.has(p));
+  }
+
+  function getSemesterTitleByIndex(termIndex) {
+    const semesterEl = document.querySelector('.semester[data-term-index="' + termIndex + '"]');
+    return semesterEl?.querySelector('.sem-title')?.textContent?.trim() || ('Term ' + (termIndex + 1));
+  }
+
+  function findTooEarlyError(courseCode, termIndex) {
+    const earliest = EARLIEST_TERM_BY_COURSE[courseCode];
+    if (typeof earliest !== 'number') return '';
+    if (termIndex >= earliest) return '';
+    return 'Cannot add ' + courseCode + ' yet. Earliest allowed semester: ' + getSemesterTitleByIndex(earliest) + '.';
+  }
+
+  function getCourseCreditsFromId(courseId) {
+    const match = courseId.match(/\b\d{4}\b/);
+    if (!match) return 0;
+    const codeDigits = match[0];
+    const credits = Number(codeDigits.charAt(1));
+    return Number.isFinite(credits) ? credits : 0;
+  }
+
+  function isEarnedGrade(grade) {
+    // Per AUI planning rule in this sheet: D/D+ still earn credits.
+    // Only failed/unfinished statuses are excluded from earned credits.
+    return !['F', 'W', 'In progress', 'Upcoming'].includes(grade);
+  }
+
+  function updateCreditsEarned() {
+    const creditsEl = document.getElementById('credits-earned');
+    if (!creditsEl) return;
+    let total = 0;
+    document.querySelectorAll('.course').forEach(row => {
+      const id = getCourseCodeFromRow(row);
+      const grade = getGradeFromRow(row);
+      if (!id || !isEarnedGrade(grade)) return;
+      const credits = getCourseCreditsFromId(id);
+      if (credits <= 0) return;
+      total += credits;
+    });
+    creditsEl.textContent = String(total) + ' SCH';
+  }
+
+  function buildPrereqTagHtml(courseCode) {
+    const prereqs = COURSE_CATALOG[courseCode]?.prereqs || [];
+    if (!prereqs.length) return '';
+    return '<div class="tags"><span class="tag tag-core">Prereq: ' + prereqs.join(', ') + '</span></div>';
+  }
+
+  function saveAddedCourse() {
+    if (!addCourseSemesterEl) return;
+    const rawCode = document.getElementById('add-course-code').value.trim().toUpperCase();
+    if (!rawCode) {
+      showPlannerAlert('Enter a course code first.', true);
+      return;
+    }
+    const catalogCourse = COURSE_CATALOG[rawCode];
+    const customTitle = document.getElementById('add-course-title').value.trim();
+    const defaultTitle = /^SPECIALIZATION [123]$/.test(rawCode) ? (rawCode + ' (TBD)') : 'Custom Course';
+    const title = customTitle || catalogCourse?.title || defaultTitle;
+    if (!catalogCourse && !/^SPECIALIZATION [123]$/.test(rawCode)) {
+      showPlannerAlert('Use a course from the official catalog list.', true);
+      return;
+    }
+    const termIndex = Number(addCourseSemesterEl.dataset.termIndex || '-1');
+    const specSlot = getSpecializationSlotForSemester(addCourseSemesterEl);
+    const allowedSpecCodes = getAllowedSpecCodesForSemester(addCourseSemesterEl);
+
+    if (isSpecializationCode(rawCode)) {
+      if (!specSlot) {
+        showPlannerAlert('Specialization courses can only be added in Spring 2026, Fall 2026, or Spring 2027.', true);
+        return;
+      }
+      if (!allowedSpecCodes.includes(rawCode)) {
+        showPlannerAlert('This semester accepts only: ' + allowedSpecCodes.join(', '), true);
+        return;
+      }
+    }
+
+    const missing = findMissingPrereqs(rawCode, termIndex);
+    if (missing.length > 0) {
+      showPlannerAlert('Cannot add ' + rawCode + '. Missing prerequisite(s): ' + missing.join(', '), true);
+      return;
+    }
+    const tooEarlyError = findTooEarlyError(rawCode, termIndex);
+    if (tooEarlyError) {
+      showPlannerAlert(tooEarlyError, true);
+      return;
+    }
+
+    const existingCodes = Array.from(addCourseSemesterEl.querySelectorAll('.course')).map(getCourseCodeFromRow);
+    if (existingCodes.includes(rawCode)) {
+      showPlannerAlert(rawCode + ' is already in this semester.', true);
+      return;
+    }
+
+    const empty = addCourseSemesterEl.querySelector('.empty');
+    if (empty) empty.remove();
+
+    const row = document.createElement('div');
+    row.className = 'course';
+    row.innerHTML =
+      '<div class="course-info">' +
+        '<div class="course-id">' + rawCode + '</div>' +
+        '<div class="course-title">' + title + '</div>' +
+        buildPrereqTagHtml(rawCode) +
+      '</div>' +
+      '<span class="grade g-tbd editable">Upcoming</span>';
+    addCourseSemesterEl.appendChild(row);
+
+    initEditableGrades();
+    closeAddCourseModal();
+    showPlannerAlert(rawCode + ' added successfully.', false);
+  }
+
+  function showPlannerAlert(text, isError) {
+    const alertEl = document.getElementById('plannerAlert');
+    if (!alertEl) return;
+    alertEl.textContent = text;
+    alertEl.classList.toggle('error', !!isError);
+    alertEl.style.display = 'block';
+    clearTimeout(showPlannerAlert._t);
+    showPlannerAlert._t = setTimeout(() => {
+      alertEl.style.display = 'none';
+    }, 2500);
+  }
+
+  function saveGrade() {
+    if (!currentGradeEl || !selectedGrade) return;
+    const courseRow  = currentGradeEl.closest('.course');
+    const id    = courseRow.querySelector('.course-id').textContent.trim();
+    const title = courseRow.querySelector('.course-title').textContent.trim();
+    const key   = 'grade__' + id + '__' + title.slice(0,20);
+
+    // Update display
+    const newCls = gradeClass(selectedGrade);
+    currentGradeEl.className = 'grade ' + newCls + ' editable';
+    currentGradeEl.textContent = selectedGrade;
+
+    // Persist
+    localStorage.setItem(key, selectedGrade);
+
+    // Flash
+    currentGradeEl.classList.add('just-saved');
+    setTimeout(() => currentGradeEl && currentGradeEl.classList.remove('just-saved'), 400);
+
+    updateCreditsEarned();
+    closeModal();
+  }
+
+  // Close on overlay click
+  document.getElementById('gradeModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('addCourseModal').addEventListener('click', function(e) {
+    if (e.target === this) closeAddCourseModal();
+  });
+  document.getElementById('specializationModal').addEventListener('click', function(e) {
+    if (e.target === this) closeSpecializationModal();
+  });
+
+  document.getElementById('add-course-code').addEventListener('input', function() {
+    const code = this.value.trim().toUpperCase();
+    const fromCatalog = COURSE_CATALOG[code]?.title || (/^SPECIALIZATION [123]$/.test(code) ? (code + ' (TBD)') : '');
+    const titleInput = document.getElementById('add-course-title');
+    if (fromCatalog && !titleInput.value.trim()) titleInput.value = fromCatalog;
+    const prereqs = COURSE_CATALOG[code]?.prereqs || [];
+    document.getElementById('add-course-prereqs').textContent = 'Prerequisites: ' + (prereqs.length ? prereqs.join(', ') : '—');
+    const earliest = EARLIEST_TERM_BY_COURSE[code];
+    document.getElementById('add-course-earliest').textContent = 'Earliest semester: ' + (typeof earliest === 'number' ? getSemesterTitleByIndex(earliest) : '—');
+  });
+
+  /* ── Restore saved grades on load ── */
+  function restoreSavedGrades() {
+    document.querySelectorAll('.grade.editable').forEach(el => {
+      const courseRow = el.closest('.course');
+      const id    = courseRow.querySelector('.course-id').textContent.trim();
+      const title = courseRow.querySelector('.course-title').textContent.trim();
+      const key   = 'grade__' + id + '__' + title.slice(0,20);
+      const saved = localStorage.getItem(key);
+      if (saved) {
+        const newCls = gradeClass(saved);
+        el.className = 'grade ' + newCls + ' editable';
+        el.textContent = saved;
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initAfterContentRebuild();
+    updateCreditsEarned();
+    // theme label
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      const lbl = document.getElementById('theme-label');
+      if (lbl) lbl.textContent = 'Light mode';
+    }
+  });
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     CHATBOT STYLES
+══════════════════════════════════════════════════════ -->
+<style>
+  /* FAB button */
+  .chat-fab {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.22);
+    z-index: 300;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.28); }
+  .chat-fab .fab-icon-open  { display: block; }
+  .chat-fab .fab-icon-close { display: none; }
+  .chat-fab.open .fab-icon-open  { display: none; }
+  .chat-fab.open .fab-icon-close { display: block; }
+
+  /* Chat panel */
+  .chat-panel {
+    position: fixed;
+    bottom: 92px;
+    right: 28px;
+    width: 380px;
+    max-height: 560px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+    z-index: 299;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(16px) scale(0.97);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), opacity 0.18s ease;
+  }
+  .chat-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Panel header */
+  .chat-header {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .chat-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .chat-header-info { flex: 1; min-width: 0; }
+  .chat-header-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .chat-header-sub  { font-size: 11px; color: var(--text-tertiary); }
+  .chat-clear-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .chat-clear-btn:hover { color: var(--text-secondary); border-color: var(--border-strong); }
+
+  /* API key setup screen */
+  .chat-setup {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-setup p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+  .chat-setup a { color: var(--text-primary); }
+  .chat-setup input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface-subtle);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-family: 'SF Mono', monospace;
+    outline: none;
+  }
+  .chat-setup input:focus { border-color: var(--border-strong); }
+  .chat-setup-btn {
+    padding: 9px;
+    border-radius: 8px;
+    border: none;
+    background: var(--text-primary);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .chat-setup-btn:hover { opacity: 0.85; }
+  .setup-error { font-size: 11px; color: var(--red-text); display: none; }
+
+  /* Messages area */
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 14px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+  }
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* Message bubbles */
+  .msg { display: flex; gap: 8px; align-items: flex-end; }
+  .msg.user { flex-direction: row-reverse; }
+
+  .msg-bubble {
+    max-width: 82%;
+    padding: 9px 13px;
+    border-radius: 14px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--text-primary);
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+  }
+  .msg.user .msg-bubble {
+    background: var(--text-primary);
+    color: var(--bg);
+    border-color: var(--text-primary);
+  }
+  .msg-bubble p { margin: 0 0 6px; }
+  .msg-bubble p:last-child { margin-bottom: 0; }
+  .msg-bubble ul, .msg-bubble ol { padding-left: 16px; margin: 4px 0; }
+  .msg-bubble li { margin-bottom: 3px; }
+  .msg-bubble strong { font-weight: 600; }
+  .msg-bubble code {
+    font-family: 'SF Mono', monospace;
+    font-size: 11px;
+    background: rgba(0,0,0,0.07);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .msg.user .msg-bubble code { background: rgba(255,255,255,0.15); }
+
+  /* Typing dots */
+  .typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    background: var(--surface-subtle);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: fit-content;
+    align-items: center;
+  }
+  .typing-dots span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    animation: bounce 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-5px)} }
+
+  /* Quick prompts */
+  .chat-suggestions {
+    padding: 0 14px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .suggestion-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-subtle);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.1s;
+    white-space: nowrap;
+  }
+  .suggestion-btn:hover { border-color: var(--border-strong); color: var(--text-primary); background: var(--surface); }
+
+  /* Input row */
+  .chat-input-row {
+    padding: 10px 12px 12px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .chat-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-subtle);
+    color: var(--text-primary);
+    font-size: 12.5px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    max-height: 100px;
+    line-height: 1.45;
+    min-height: 36px;
+  }
+  .chat-input:focus { border-color: var(--border-strong); }
+  .chat-send-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    background: var(--text-primary);
+    color: var(--bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: opacity 0.1s;
+  }
+  .chat-send-btn:hover { opacity: 0.82; }
+  .chat-send-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* Key badge in header */
+  .key-badge {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--text-tertiary);
+    cursor: pointer;
+    background: var(--surface-subtle);
+  }
+  .key-badge:hover { border-color: var(--border-strong); color: var(--text-secondary); }
+</style>
+
+<!-- ═══════════════════════════════════════════════════
+     CHATBOT HTML
+══════════════════════════════════════════════════════ -->
+
+<!-- Floating button -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()">
+  <svg class="fab-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <svg class="fab-icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<!-- Chat panel -->
+<div class="chat-panel" id="chatPanel">
+
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Degree Advisor</div>
+      <div class="chat-header-sub">BSCSC · Computer Systems · AUI</div>
+    </div>
+    <span class="key-badge" id="keyBadge" onclick="showSetup()" title="Change API key">API Key</span>
+    <button class="chat-clear-btn" onclick="clearChat()">Clear</button>
+  </div>
+
+  <!-- Setup screen (shown when no API key) -->
+  <div class="chat-setup" id="chatSetup">
+    <p>This advisor has full knowledge of your BSCSC degree plan, course sequence, prerequisites, and specialization requirements.</p>
+    <p>Enter your <a href="https://aistudio.google.com/apikey" target="_blank">Google AI API key</a> to get started. It's saved locally in your browser only.</p>
+    <input type="password" id="apiKeyInput" placeholder="AIza..." />
+    <div class="setup-error" id="setupError">Invalid key — please check and try again.</div>
+    <button class="chat-setup-btn" onclick="saveApiKey()">Connect →</button>
+  </div>
+
+  <!-- Chat UI (hidden until key set) -->
+  <div id="chatUI" style="display:none; flex-direction:column; flex:1; overflow:hidden; display:none;">
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-suggestions" id="chatSuggestions">
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">What do I still need to graduate?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">What are my CSys requirements?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">Am I on track for Fall 2026?</button>
+      <button class="suggestion-btn" onclick="sendSuggestion(this)">What's my GPA so far?</button>
+    </div>
+    <div class="chat-input-row">
+      <textarea class="chat-input" id="chatInput" placeholder="Ask about your degree…" rows="1"></textarea>
+      <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CHATBOT SCRIPT
+══════════════════════════════════════════════════════ -->
+<script>
+const SYSTEM_PROMPT = `You are a helpful and knowledgeable degree advisor for Mohammed Benabdallah Belbaraka (Student ID: 121160), a Computer Science student at Al Akhawayn University (AUI), School of Science and Engineering. You have complete knowledge of his degree plan and the BSCSC course sequence.
+
+## DEGREE REQUIREMENTS (134 SCH total)
+- Area 1: Mathematics, Sciences & Engineering — 30 SCH
+- Free Electives — 6 SCH
+- CS Core — 41 SCH
+- CS Specialization (Computer Systems) — 9 SCH
+- Computing Elective — 3 SCH
+- Area 3: Minor (Communication & Media Arts) — 15 SCH
+- Area 4: General Education — 30 SCH
+
+## MOHAMMED'S COMPLETED COURSES
+
+### Year 1 — 2022-2023
+Fall 2022 (15 SCH): ARB 1203 Arabic Communication (A−), CSC 1401 Computer Programming (B+), ENG 1301 English Composition (A−), FAS 0210 Strategic Academic Skills (P), FYE 1101 First Year Experience I (P), MTH 1304 Discrete Mathematics (F)
+Spring 2023 (16 SCH): CHE 1401 General Chemistry I (C+), COM 1301 Public Speaking (A+), CSC 2302 Data Structures (D), FAS 1220 Intro to Critical Thinking (B), FYE 1102 First Year Experience II (P), MTH 1303 Differential & Integral Calculus (F)
+Summer 2023 (6 SCH): MTH 1304 Discrete Mathematics RETAKE (A+), PHI 2302 History of Ideas (A+)
+
+### Year 2 — 2023-2024
+Fall 2023: COM 1304 New Media Technologies — MINOR 1 (A−), CSC 2302 Data Structures RETAKE (A−), ENG 2303 Technical Writing (A−), MTH 1303 Calculus I RETAKE (A−), PSY 1301 Intro to Psychology (A)
+Spring 2024: COM 2403 Photography — MINOR 2 (A−), CSC 2306 Object-Oriented Programming (A−), EGR 2302 Engineering Economics (B), PHY 1401 Physics I (B), MTH 2301 Calculus II (C)
+Summer 2024: PHY 1402 Physics II (C+), CSC 3324 Software Engineering (C)
+
+### Year 3 — 2024-2025
+Fall 2024: COM 2427 Art and Design Production — MINOR 3 (A), CSC 2305 Computer Architecture (W — withdrawn), CSC 3326 Database Systems (B+), MTH 2320 Linear Algebra (C−), PSC 2301 Comparative Political Systems (C)
+Spring 2025: COM 2301 Professional Communication — MINOR 4 (A), MTH 3301 Probability & Statistics for Engineering (B), CSC 2305 Computer Architecture RETAKE (B+), CSC 3315 Languages & Compilers (B), CSC 3323 Analysis of Algorithms (D+), GER 1301 Beginning German (B)
+Summer 2025: No courses
+
+### Year 4 — 2025-2026
+Fall 2025: ART 1304 Culture and Heritage (B−), CSC 3351 Operating Systems (A−), CSC 3358 Blockchain Business Applications — COMPUTING ELECTIVE (C), CSC 3371 Computer Networks & Communication (B), EGR 4300 Internship (A), HUM 3399 Special Topics: Common Sense — FREE ELECTIVE 1 (A)
+Spring 2026 (IN PROGRESS): CSC 3323 Analysis of Algorithms RETAKE, CSC 3374 Advanced & Distributed Programming Paradigms, CSC 3373 Cloud Computing — CSYS REQUIRED, CSC 3329 IoT & Big Data Streaming — CSYS ELECTIVE
+
+### Planned upcoming
+Summer 2026: Minor Elective (Minor 5), Free Elective 2
+Fall 2026 (FINAL SEMESTER): CSC 3328 Embedded Systems — CSYS REQUIRED, EGR 4402 Capstone Design
+
+## SPECIALIZATION: Computer Systems (CSys) — 9 SCH
+Required (must complete both):
+- CSC 3373 Cloud Computing (prerequisite: CSC 3351 and CSC 3371) — IN PROGRESS
+- CSC 3328 Embedded Systems (prerequisite: CSC 3351) — PLANNED Fall 2026
+Elective (choose 1):
+- CSC 3329 IoT & Big Data Streaming (prerequisite: CSC 3371) — IN PROGRESS ✓
+- Other options: CSC 3331, CSC 3376
+
+## MINOR: Communication & Media Arts — 15 SCH
+1. COM 1304 New Media Technologies ✓
+2. COM 2403 Photography ✓
+3. COM 2427 Art and Design Production ✓
+4. COM 2301 Professional Communication ✓
+5. Minor 5 — planned Summer 2026
+
+## CS CORE COURSES (41 SCH) STATUS
+CSC 1401 ✓, CSC 2302 ✓, CSC 2306 ✓, CSC 2305 ✓, CSC 3315 ✓, CSC 3323 (retaking), CSC 3324 ✓, CSC 3326 ✓, CSC 3351 ✓, CSC 3371 ✓, CSC 3374 (in progress), EGR 4300 ✓, EGR 4402 (planned)
+
+## AREA 1: MATH & SCIENCES (30 SCH) STATUS
+MTH 1303 ✓, MTH 1304 ✓, MTH 2301 ✓, MTH 2320 ✓, MTH 3301 ✓, PHY 1401 ✓, PHY 1402 ✓, EGR 2302 ✓ — COMPLETE
+
+## GPA CALCULATION (graded courses only, excluding P/W/F retaken)
+Grade points: A+=4.0, A=4.0, A−=3.7, B+=3.3, B=3.0, B−=2.7, C+=2.3, C=2.0, C−=1.7, D+=1.3, D=1.0, F=0.0
+Note: When a course is retaken, typically only the higher grade counts. MTH 1304 retaken (A+ replaces F), MTH 1303 retaken (A− replaces F), CSC 2302 retaken (A− replaces D), CSC 2305 retaken (B+ replaces W).
+
+## FULL BSCSC PREREQUISITE CHAIN
+- CSC 2302 requires CSC 1401
+- CSC 2306 requires CSC 2302
+- CSC 2305 requires CSC 2302
+- CSC 3315 requires CSC 2306
+- CSC 3323 requires CSC 2306, CSC 2302
+- CSC 3324 requires CSC 2306
+- CSC 3326 requires CSC 2306
+- CSC 3351 requires CSC 2305
+- CSC 3371 requires CSC 2305
+- CSC 3373 requires CSC 3351 and CSC 3371
+- CSC 3374 requires CSC 3323 (Junior classification)
+- CSC 3328 requires CSC 3351
+- CSC 3329 requires CSC 3371
+- EGR 4402 requires Senior classification
+
+## OTHER NOTES
+- Mohammed retook CSC 3323 (Analysis of Algorithms) — got D+ in Spring 2025, retaking in Spring 2026
+- CSC 3358 Blockchain is his computing elective (needs advisor confirmation it's on approved list)
+- Expected graduation: Fall 2026
+- 134 SCH minimum required
+
+Be conversational, helpful, and precise. When asked about grades or GPA, calculate carefully. When asked about requirements, be specific about what's done vs remaining. Keep responses concise but complete. If something needs advisor confirmation, say so.`;
+
+  let chatHistory = [];
+  let isChatOpen = false;
+  let isLoading = false;
+
+  /* ── Panel toggle ── */
+  function toggleChat() {
+    isChatOpen = !isChatOpen;
+    document.getElementById('chatFab').classList.toggle('open', isChatOpen);
+    document.getElementById('chatPanel').classList.toggle('open', isChatOpen);
+    if (isChatOpen) {
+      const key = localStorage.getItem('google_ai_key');
+      if (key) showChatUI();
+      else showSetupUI();
+    }
+  }
+
+  function showSetupUI() {
+    document.getElementById('chatSetup').style.display = 'flex';
+    document.getElementById('chatUI').style.display = 'none';
+    document.getElementById('keyBadge').style.display = 'none';
+  }
+
+  function showChatUI() {
+    document.getElementById('chatSetup').style.display = 'none';
+    document.getElementById('chatUI').style.display = 'flex';
+    document.getElementById('keyBadge').style.display = '';
+    if (chatHistory.length === 0) addWelcomeMessage();
+    scrollToBottom();
+  }
+
+  function showSetup() {
+    document.getElementById('chatSetup').style.display = 'flex';
+    document.getElementById('chatUI').style.display = 'none';
+    document.getElementById('keyBadge').style.display = 'none';
+  }
+
+  /* ── API key ── */
+  function saveApiKey() {
+    const input = document.getElementById('apiKeyInput');
+    const key = input.value.trim();
+    if (!key || key.length < 20) {
+      document.getElementById('setupError').style.display = 'block';
+      return;
+    }
+    document.getElementById('setupError').style.display = 'none';
+    localStorage.setItem('google_ai_key', key);
+    input.value = '';
+    showChatUI();
+  }
+
+  /* ── Welcome message ── */
+  function addWelcomeMessage() {
+    appendMessage('assistant', "Hi Mohammed! 👋 I'm your degree advisor. I have full knowledge of your BSCSC plan, your completed courses, your Computer Systems specialization, and your Communication & Media Arts minor.\n\nWhat would you like to know?");
+  }
+
+  /* ── Clear chat ── */
+  function clearChat() {
+    chatHistory = [];
+    document.getElementById('chatMessages').innerHTML = '';
+    document.getElementById('chatSuggestions').style.display = 'flex';
+    addWelcomeMessage();
+  }
+
+  /* ── Suggestions ── */
+  function sendSuggestion(btn) {
+    document.getElementById('chatSuggestions').style.display = 'none';
+    const text = btn.textContent;
+    sendMessageText(text);
+  }
+
+  /* ── Send message ── */
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text || isLoading) return;
+    input.value = '';
+    input.style.height = 'auto';
+    document.getElementById('chatSuggestions').style.display = 'none';
+    sendMessageText(text);
+  }
+
+  async function sendMessageText(text) {
+    appendMessage('user', text);
+    chatHistory.push({ role: 'user', parts: [{ text }] });
+
+    const typingEl = appendTyping();
+    isLoading = true;
+    document.getElementById('sendBtn').disabled = true;
+
+    try {
+      const key = localStorage.getItem('google_ai_key');
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+            contents: chatHistory
+          })
+        }
+      );
+
+      typingEl.remove();
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        if (res.status === 400 || res.status === 403) {
+          appendMessage('assistant', '⚠️ Invalid API key. Click "API Key" in the header to update it.');
+          localStorage.removeItem('google_ai_key');
+        } else {
+          appendMessage('assistant', `⚠️ Error ${res.status}: ${err.error?.message || 'Something went wrong.'}`);
+        }
+        return;
+      }
+
+      const data = await res.json();
+      const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response received.';
+      chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+      appendMessage('assistant', reply);
+
+    } catch(e) {
+      typingEl.remove();
+      appendMessage('assistant', '⚠️ Network error — check your connection and try again.');
+    } finally {
+      isLoading = false;
+      document.getElementById('sendBtn').disabled = false;
+    }
+  }
+
+  /* ── DOM helpers ── */
+  function appendMessage(role, text) {
+    const container = document.getElementById('chatMessages');
+    const msg = document.createElement('div');
+    msg.className = 'msg ' + role;
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.innerHTML = formatMessage(text);
+    msg.appendChild(bubble);
+    container.appendChild(msg);
+    scrollToBottom();
+    return msg;
+  }
+
+  function appendTyping() {
+    const container = document.getElementById('chatMessages');
+    const wrap = document.createElement('div');
+    wrap.className = 'msg assistant';
+    wrap.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+    container.appendChild(wrap);
+    scrollToBottom();
+    return wrap;
+  }
+
+  function scrollToBottom() {
+    const c = document.getElementById('chatMessages');
+    c.scrollTop = c.scrollHeight;
+  }
+
+  function formatMessage(text) {
+    // Basic markdown-like formatting
+    return text
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/^### (.+)$/gm, '<strong>$1</strong>')
+      .replace(/^## (.+)$/gm, '<strong>$1</strong>')
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/\n/g, '<br>')
+      .replace(/^(.+)$/, '<p>$1</p>');
+  }
+
+  /* ── Auto-resize textarea ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('chatInput');
+    if (input) {
+      input.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+      });
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+    // Check for existing key
+    const key = localStorage.getItem('google_ai_key');
+    if (key) document.getElementById('keyBadge').style.display = '';
+    else document.getElementById('keyBadge').style.display = 'none';
+  });
+</script>
+</body>
+</html>
